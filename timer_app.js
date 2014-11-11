@@ -16,18 +16,35 @@ if (Meteor.isClient) {
 
       return false;
     },
-
+    //start the timer
     "click .start": function() {
-      var seconds = 1500;
+      var minutes = 25;
+      var seconds = 0;
       var timerID;
-
-      $('.changeDiv').text("Time Remaining:" + seconds);
+      $('.start').hide();
+      $('.delete').hide();
+      $('.new-task').hide();
+      $('.changeDiv').show();
+      $('.changeDiv').text("Time Remaining: " + minutes + ":" + seconds);
       timerID = setInterval(updateTime, 1000);
 
       function updateTime() {
         seconds --;
-        $('.changeDiv').text("Time Remaining:" + seconds);
+        if(seconds === 0){
+          if(minutes === 0){
+            clearInterval(timerID);
+            $('.changeDiv').hide();
+            $('.start').show();
+            $('.delete').show();
+            $('.new-task').show();
+          }else{
+            seconds = 59;
+            minutes --;
+          }
+        }
+        $('.changeDiv').text("Time Remaining: " + minutes + ":" + seconds);
       }
+
     }
 
   });
