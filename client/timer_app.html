@@ -1,15 +1,16 @@
 <head>
     <title>Timer</title>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 </head>
 
 <body>
     <header>
-   
-            <h1>Timer Application</h1>
-            <button class="start">Start Timer</button>
-            <div class="align-right">
-                {{> loginButtons }}
-            </div> 
+
+        <h1>Timer Application</h1>
+        <button class="start">Start Timer</button>
+        <div class="align-right">
+            {{> loginButtons }}
+        </div>
 
         <div class="changeDiv">
         </div>
@@ -21,28 +22,12 @@
     <ul>
         {{> tasksList}}
     </ul>
-    <!-- Modal Begins Here -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title">Times Up!</h4>
-          </div>
-          <div class="modal-body">
-            <ul>
-                {{#each tasks}} {{> task}} {{/each}}
-            </ul>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save History</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-<button type="button" data-toggle="modal" data-target="#myModal">Launch modal</button>
+    <div class="modal-div">
+        {{> modal}}
+    </div>
+    <div id="footer">
+        <div class="container" id="chart-container" style="width:100%; height:400px;"></div>
+    </div>
 </body>
 
 <template name="task">
