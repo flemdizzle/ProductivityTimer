@@ -16,8 +16,8 @@ if (Meteor.isClient) {
     },
     //start the timer
     "click .start": function() {
-      var minutes = 24;
-      var seconds = 59;
+      var minutes = 0;
+      var seconds = 3;
       var timerID;
       $('.start').hide();
       $('.delete').hide();
@@ -58,6 +58,7 @@ if (Meteor.isClient) {
   });
 
   // This code only runs on the client
+  // remove this after refactoring templates
   Template.body.helpers({
     tasks: function () {
       return Tasks.find({});
