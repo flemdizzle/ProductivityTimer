@@ -129,3 +129,7 @@ header .hide-completed {
   /*float: right;*/
 }
 
+#chart-container{
+  position: absolute;
+  bottom: 0px;
+}
